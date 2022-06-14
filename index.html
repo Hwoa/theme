@@ -1,1 +1,29 @@
-ahoahoman
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>連絡フォーム</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet " href="style.css ">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+</head>
+
+
+<body>
+<h1>連絡フォーム</h1>
+<form id="contact-form" method="post">
+    <h4>名前:</h4>
+    <input type="text" id="name-input" placeholder="お名前を入力してください。" class="form-control" /><br />
+    <h4>件名:</h4>
+    <input type="subject " id="subject" placeholder="お名前を入力してください。" class="form-control " /><br />
+    <h4>メール:</h4>
+    <input type="email " id="email-input" placeholder="メールを入力してください。" class="form-control " /><br />
+    <h4>メッセージ:</h4>
+    <textarea id="description-input " rows="3 " placeholder="メッセージを入力してください。 " class="form-control "></textarea><br />
+    <div class="button-wrapper "><button type="button " onClick="submitToAPI(event) " class="btn btn-lg ">送信</button></div>
+
+</form>
+</body>
+</html>
