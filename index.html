@@ -1,29 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<!--[if lt IE 7]> <html lang="ja" class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html lang="ja" class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="ja" class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]> <html lang="ja" class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="ja" class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>連絡フォーム</title>
-    <script src="index.js"></script>
-    <link rel="stylesheet " href="style.css ">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <meta name="turbolinks-cache-control" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="z5Si4Jyp5bPPBnD6I92lVzn1S/KJ/e9f147sgrp0182VXot9FAfhXVZ542wyHaphEvsVX61nM7MD+rgbgrOFJA==" />
+    <link rel="stylesheet" media="all" href="style.css" data-turbolinks-track="reload" />
+    <title>BMマニュアルサイト：お問い合わせフォーム</title>
 </head>
-
-
 <body>
-<h1>連絡フォーム</h1>
-<form id="contact-form" method="post">
-    <h4>名前:</h4>
-    <input type="text" id="name-input" placeholder="お名前を入力してください。" class="form-control" /><br />
-    <h4>件名:</h4>
-    <input type="subject " id="subject" placeholder="お名前を入力してください。" class="form-control " /><br />
-    <h4>メール:</h4>
-    <input type="email " id="email-input" placeholder="メールを入力してください。" class="form-control " /><br />
-    <h4>メッセージ:</h4>
-    <textarea id="description-input " rows="3 " placeholder="メッセージを入力してください。 " class="form-control "></textarea><br />
-    <div class="button-wrapper "><button type="button " onClick="submitToAPI(event) " class="btn btn-lg ">送信</button></div>
 
-</form>
+<div class="form-preview-wrap">
+    <form class="preview-form-group" id="rc-form" enctype="multipart/form-data" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+        <div id="form-fields">
+
+            <div class="fields show-page clearfix">
+
+                <!-- 問い合わせ種別 -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-contact-type" id="contact-field-preview-contact-type-dl">
+                    <dt>
+                        <span class="preview-contact-required_label form-preview-reqiured">必須</span>
+                        <span>お問い合わせの種類</span>
+                    </dt>
+                    <dd>
+                        <select name="select-1" class="form-preview-input01" id="contact-field-preview-contact-type">
+                            <option value="">選択してください</option><option value="no_option_管理画面について">管理画面について</option>
+                            <option value="no_option_公開画面について">公開画面について</option>
+                            <option value="no_option_ツール改善要望">ツール改善要望</option>
+                            <option value="no_option_その他">その他</option></select>
+                        <input type="hidden" name="select-1_key" class="hidden" />
+                        <input type="hidden" name="select-1_key_value" class="hidden" />
+                        <p class="form-preview-help-text"></p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm-contact-type" id="contact-field-confirm-contact-type-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-reqiured">必須</span>
+                        <span>お問い合わせの種類</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"><span class="form-preview-labeled_text">管理画面について</span></span>
+                    </dd>
+                </dl>
+
+
+                <!-- 会社名 -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-company" id="contact-field-preview-company-dl">
+                    <dt>
+                        <span class="preview-contact-required_label form-preview-reqiured">必須</span>
+                        <span>御社名</span>
+                    </dt>
+                    <dd>
+                        <input type="text" name="company_name" class="form-preview-input01"  id="contact-field-preview-company"/>
+                        <p class="form-preview-help-text"></p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm-company" id="contact-field-confirm-company-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-reqiured">必須</span>
+                        <span>御社名</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"><span class="form-preview-labeled_text">安部勲</span></span>
+                    </dd>
+                </dl>
+
+                <!-- 氏名 -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-user-name" id="contact-field-preview-name-dl">
+                    <dt>
+                        <span class="preview-contact-required_label form-preview-reqiured">必須</span>
+                        <span>ご担当者様名</span>
+                    </dt>
+                    <dd>
+                        姓
+                        <input type="text" name="family_name" id="contact-field-preview-family-name"
+                               class="form-preview-input01 form-preview-input01-half" style="width: 108px;" />
+                        名
+                        <input type="text" name="given_name" id="contact-field-preview-given-name"
+                               class="form-preview-input01 form-preview-input01-half" style="width: 108px;" />
+                        <p class="form-preview-help-text"></p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm-user-name" id="contact-field-confirm-name-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-reqiured">必須</span>
+                        <span>ご担当者様名</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"><span class="form-preview-labeled_text">安部 勲</span></span>
+                    </dd>
+                </dl>
+
+
+                <!-- メールアドレス -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-email" id="contact-field-preview-email-dl">
+                    <dt>
+                        <span class="preview-contact-required_label form-preview-reqiured">必須</span>
+                        <span>ご連絡先メールアドレス</span>
+                    </dt>
+                    <dd>
+                        <input type="text" name="email" class="form-preview-input01" id="contact-field-preview-email"/>
+                        <p class="form-preview-help-text"></p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm" id="contact-field-confirm-email-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-reqiured">必須</span>
+                        <span>ご連絡先メールアドレス</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"><span class="form-preview-labeled_text">abe@nana-system.com</span></span>
+                    </dd>
+                </dl>
+
+
+                <!-- 電話番号 -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-tel_no" id="contact-field-preview-phone-dl">
+                    <dt>
+                        <span class="preview-contact-not_required_label form-preview-not-reqiured">任意</span>
+                        <span>ご連絡先電話番号</span>
+                    </dt>
+                    <dd>
+                        <input type="text" name="phone_number" class="form-preview-input01" id="contact-field-preview-phone"/>
+                        <p class="form-preview-help-text">お電話でのご案内をご希望の場合はご記入ください。</p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm" id="contact-field-confirm-phone-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-not-reqiured">任意</span>
+                        <span>ご連絡先電話番号</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"></span>
+                    </dd>
+                </dl>
+
+
+                <!-- ご利用WebサイトURL -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-website" id="contact-field-preview-url-dl">
+                    <dt>
+                        <span class="preview-contact-required_label form-preview-reqiured">必須</span>
+                        <span>ご利用WebサイトURL</span>
+                    </dt>
+                    <dd>
+                        <input type="text" name="web_site" class="form-preview-input01" id="contact-field-preview-url"/>
+                        <p class="form-preview-help-text">※http://またはhttps://から始まるドメインをご記入ください(制作中の企業様は制作中のドメインをご記載ください)</p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm" id="contact-field-confirm-url-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-reqiured">必須</span>
+                        <span>ご利用WebサイトURL</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"><span class="form-preview-labeled_text">http://www.yahoo.co.jp</span></span>
+                    </dd>
+                </dl>
+
+
+                <!-- お問い合わせ内容 -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-textarea-1" id="contact-field-preview-content-dl">
+                    <dt>
+                        <span class="preview-contact-required_label form-preview-reqiured">必須</span>
+                        <span>お問い合わせ内容</span>
+                    </dt>
+                    <dd>
+                        <textarea name="text_area-1" class="form-preview-input01" style="resize:none;" rows="5" id="contact-field-preview-content"></textarea>
+                        <p class="form-preview-help-text"></p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm-textarea-1" id="contact-field-confirm-content-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-reqiured">必須</span>
+                        <span>お問い合わせ内容</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"><span class="form-preview-labeled_text">ですとだよ</span></span>
+                    </dd>
+                </dl>
+
+
+                <!-- ファイル -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-file" id="contact-field-preview-file-dl">
+                    <dt>
+                        <span class="preview-contact-not_required_label form-preview-not-reqiured">任意</span>
+                        <span>添付ファイル（単一）</span>
+                    </dt>
+                    <dd class="form-preview-file-attach">
+                        <input type="file" name="attachment-20220606080320653"  id="contact-field-preview-file"/>
+                        <p class="form-preview-help-text"></p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm-file" id="contact-field-confirm-file-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-not-reqiured">任意</span>
+                        <span>添付ファイル（単一）</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"><span class="form-preview-labeled_text">CEG.png</span></span>
+                    </dd>
+                </dl>
+
+
+                <!-- 個人情報の取り扱い -->
+                <!-- 入力 -->
+                <dl class="form-preview-dl preview-personal-info" id="contact-field-preview-check-dl">
+                    <dt>
+                        <span class="preview-contact-required_label form-preview-reqiured">必須</span>
+                        <span>個人情報の取扱い</span>
+                    </dt>
+                    <dd>
+                        <label>
+                            <input type="checkbox" name="agreement" id="contact-field-preview-check"/>
+                            <span class="labeled_text">個人情報の取扱いに同意する</span>
+                        </label>
+                        <p class="form-preview-help-text"><a href="https://www.startialab.co.jp/privacy.html" target="_blank">「個人情報保護方針」</a><a href="https://www.startialab.co.jp/privacy.html#section2" target="_blank">「個人情報の取扱い」</a>同意いただいた方のみ送信が可能です。</p>
+                        <p class="form-preview-alert-text"></p>
+                    </dd>
+                </dl>
+                <!-- 確認 -->
+                <dl class="form-preview-dl confirm-personal-info" id="contact-field-confirm-check-dl" style="display: none;">
+                    <dt>
+                        <span class="form-preview-reqiured">必須</span>
+                        <span>個人情報の取扱い</span>
+                    </dt>
+                    <dd style="padding: 11px 0;">
+                        <span class="form-preview-input01"><span class="form-preview-labeled_text">個人情報の取扱いに同意する</span></span>
+                    </dd>
+                </dl>
+
+            </div>
+
+            <!-- 確認ボタン -->
+            <div align="center" class="show-page-btn" id="contact-field-preview-btn-dl">
+                <button type="button" name="button" type="button" id="preview-contact-submit" class="btn" data-disable-with="&lt;i
+                class=&quot;fa fa-spinner fa-spin&quot;&gt;&lt;/i&gt; 確認" onClick="submitToAPI()" >確認</button>
+            </div>
+
+            <!-- 戻る & 送信ボタン -->
+            <div align="center" class="show-page-btn" id="contact-field-confirm-btn-dl" style="display: none;">
+                <button type="button" name="button" id="cancel-btn" class="btn" onClick="cancelAPI()">キャンセル</button>
+                <button type="button" name="button" id="proceed-btn" class="btn"  onClick="sendAPI()" data-disable-with="<i class=&quot;fa fa-spinner fa-spin&quot;></i> 送信" data-disable-with-permanent="true">送信</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
